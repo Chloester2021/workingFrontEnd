@@ -1,16 +1,35 @@
 import React from "react"
-import { Auth } from "./Auth"
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Auth } from "./components/Auth"
+import FetchData from "./fetchData"
 import { Hero } from "./Homepage"
 import List from "./List"
-import Message from "./Message"
-// import Setup from "./search"
+import Error from "./pages/Error";
+import Mint from "./pages/Mint";
+import PrivateRoute from "./PrivateRoute";
+
 function App() {
+
   return (
     <div className="App">
-      <Auth />
-      <Hero />
-      <List />
-      <Message />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Auth />}>
+            <Route index element={<Hero />} />
+            <Route path='mint' element={
+              <PrivateRoute>
+                <Mint />
+              </PrivateRoute>
+            } />
+          </Route>
+          <Route path='*' element={<Error />} />
+        </Routes>
+
+      </Router>
+
+
+      {/* <List /> */}
+
     </div>
   )
 }

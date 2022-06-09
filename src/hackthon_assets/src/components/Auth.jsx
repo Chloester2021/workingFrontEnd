@@ -1,6 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react"
 import { AuthClient } from "@dfinity/auth-client"
-import Search from "./search"
+import { Link } from 'react-router-dom'
+import logo from '../../assets/homepage/logo.png'
+import { Outlet } from "react-router-dom";
+import Usermode from "./Usermode"
 
 function Auth() {
   const [signedIn, setSignedIn] = useState(false)
@@ -19,6 +22,7 @@ function Auth() {
       // get auth client identity
       const identity = client.getIdentity()
       const principal = identity.getPrincipal().toString()
+      console.log(principal);
       setSignedIn(true)
       setPrincipal(principal)
     }
@@ -51,33 +55,38 @@ function Auth() {
   }, [])
 
   return (
+    <>
 
-    <div class="navigation-bar" id="navigation-container">
 
-      <a href="#">
-        <img src="https://i.imgur.com/nDYAiTj.png" />
-      </a>
-      <ul>
-        {signedIn && <Search />}
-        <li><a href="#">The Ring shop</a></li>
-        {!signedIn && client ? (
-          <li>
-            <a onClick={signIn}>
-              <span class="walletborder">Connect the wallet</span></a></li >
-        ) : null
-        }
+      <div className="navigation-bar" id="navigation-container">
+        <Link to='/'>
+          <img src={logo} />
+        </Link>
 
-        {
-          signedIn ? (
+
+        <ul>
+
+          {/* <li><a>The Ring shop</a></li> */}
+          {!signedIn && client ? (
             <li>
-              <a onClick={signOut}>Sign out</a>
-            </li>
+              <a onClick={signIn} className="walletborder">
+                Connect the wallet</a></li >
           ) : null
-        }
-      </ul>
-    </div>
+          }
 
+          {
+            signedIn ? (
+              <li>
+                <a>Send Message</a>
+                <a onClick={signOut}>Sign out</a>
+              </li>
+            ) : null
+          }
+        </ul>
 
+      </div>
+      <Outlet />
+    </>
 
 
 

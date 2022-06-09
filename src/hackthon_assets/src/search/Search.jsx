@@ -8,11 +8,11 @@ function Search({ data }) {
     const [searchField, setSearchField] = useState("");
     const [searchShow, setSearchShow] = useState(false);
 
-    const filteredPersons = data.filter(
+    const filteredPersons = [...data].reverse().filter(
         person => {
             return (
                 person
-                    .name
+                    .user_self_id
                     .toLowerCase()
                     .includes(searchField.toLowerCase()) ||
                 person
@@ -44,15 +44,11 @@ function Search({ data }) {
     }
 
     return (
-        <section className="garamond">
-            <div className="navy georgia ma0 grow">
-                {/* <h2 className="f2">Search</h2> */}
-            </div>
-            <div className="pa2">
+        <section>
+            <div>
                 <input
-                    className="pa3 bb br3 grow b--none bg-lightest-blue ma3"
                     type="search"
-                    placeholder="Search People"
+                    placeholder="Search"
                     onChange={handleChange}
                 />
             </div>

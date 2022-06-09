@@ -13,15 +13,17 @@ function List() {
     const userId = Principal.fromText('qoctq-giaaa-aaaaa-aaaea-cai')
     const localHost = "http://localhost:8080/";
     const agent = new HttpAgent({ host: localHost });
+    // agent.fetchRootKey()
 
     const loadUserProfile = async () => {
         const authClient = await AuthClient.create()
         const identity = await authClient.getIdentity()
-        // below should work if deployed live
+        // // below should work if deployed live
         // const authenticatedActor = await Actor.createActor(canisterId, {
         //     agentOptions: { identity, }
         // })
         // const data = await authenticatedActor.getOwnProfile()
+
         const userActor = await Actor.createActor(idlFactory, {
             agent,
             canisterId: userId,

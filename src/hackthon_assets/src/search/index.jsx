@@ -1,12 +1,14 @@
-import React from 'react';
+import React from "react";
+import { useGlobalContext } from '../context'
 import Search from './Search';
-import data from "./data";
+// import data from "./MOCK_DATA";
 
 function Setup() {
+    const { messages } = useGlobalContext()
     return (
-        <li>
-            <Search data={data} />
-        </li>
+        <>
+            <Search data={messages} />
+        </>
     );
 }
 
