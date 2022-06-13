@@ -1,15 +1,13 @@
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { AuthClient } from "@dfinity/auth-client"
-import { Link } from 'react-router-dom'
-import logo from '../../assets/homepage/logo.png'
-import { Outlet } from "react-router-dom";
-import Usermode from "./Usermode"
+import { Link, useNavigate } from 'react-router-dom'
+import logo from '../../assets/home-page/assets/logo.png'
 
 function Auth() {
   const [signedIn, setSignedIn] = useState(false)
   const [principal, setPrincipal] = useState("")
   const [client, setClient] = useState()
-
+  const navigate = useNavigate()
   const initAuth = async () => {
     // create auth method
     const client = await AuthClient.create()
@@ -22,7 +20,7 @@ function Auth() {
       // get auth client identity
       const identity = client.getIdentity()
       const principal = identity.getPrincipal().toString()
-      console.log(principal);
+      console.log(principal, identity);
       setSignedIn(true)
       setPrincipal(principal)
     }
@@ -42,12 +40,18 @@ function Auth() {
     })
     setSignedIn(true)
     setPrincipal(principal)
+    // setUser(principal)
+    localStorage.setItem('user', principal)
+    navigate('/mint')
   }
 
   const signOut = async () => {
     await client.logout()
     setSignedIn(false)
     setPrincipal("")
+    // setUser(null)
+    localStorage.clear()
+    navigate('/')
   }
 
   useEffect(() => {
@@ -66,7 +70,6 @@ function Auth() {
 
         <ul>
 
-          {/* <li><a>The Ring shop</a></li> */}
           {!signedIn && client ? (
             <li>
               <a onClick={signIn} className="walletborder">
@@ -75,17 +78,19 @@ function Auth() {
           }
 
           {
-            signedIn ? (
+            signedIn && (
               <li>
-                <a>Send Message</a>
+                <Link to='/mint'>
+                  Send Message
+                </Link>
                 <a onClick={signOut}>Sign out</a>
               </li>
-            ) : null
+            )
           }
         </ul>
 
       </div>
-      <Outlet />
+
     </>
 
 

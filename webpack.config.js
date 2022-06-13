@@ -48,7 +48,7 @@ module.exports = {
   entry: {
     // The frontend.entrypoint points to the HTML file for this build, so we need
     // to replace the extension to `.js`.
-    index: path.join(__dirname, asset_entry).replace(/\.html$/, ".js"),
+    index: path.join(__dirname, asset_entry).replace(/\.html$/, ".jsx"),
   },
   devtool: isDevelopment ? "source-map" : false,
   optimization: {
@@ -67,7 +67,9 @@ module.exports = {
   },
   output: {
     filename: "index.js",
+    // path: path.resolve(__dirname, 'dist'),
     path: path.join(__dirname, "dist", frontendDirectory),
+    // publicPath: '/'
   },
 
   // Depending in the language or framework you are using for
@@ -75,12 +77,24 @@ module.exports = {
   // webpack configuration. For example, if you are using React
   // modules and CSS as described in the "Adding a stylesheet"
   // tutorial, uncomment the following lines:
-  // module: {
-  //  rules: [
-  //    { test: /\.(ts|tsx|jsx)$/, loader: "ts-loader" },
-  //    { test: /\.css$/, use: ['style-loader','css-loader'] }
-  //  ]
-  // },
+  module: {
+    rules: [
+      { test: /\.(ts|tsx|jsx)$/, loader: "ts-loader" },
+      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      {
+  test: /\.(png|svg|jpg|jpeg|gif)$/i,
+  type: 'asset/resource',
+},
+      //  {
+      //   test: /\.(png|jpe?g|gif)$/i,
+      //   // type: 'asset/resource',
+      //   loader: 'file-loader',
+      //   options: {
+      //     name: '[path][name].[ext]'
+      //   },
+      // },
+    ],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, asset_entry),
@@ -114,6 +128,7 @@ module.exports = {
         },
       },
     },
+    historyApiFallback: true,
     hot: true,
     watchFiles: [path.resolve(__dirname, "src", frontendDirectory)],
     liveReload: true,

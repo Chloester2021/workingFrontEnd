@@ -1,5 +1,4 @@
 // List component is for test only!
-
 import React, { useEffect, useState } from "react";
 import { Actor, HttpAgent } from "@dfinity/agent";
 import { idlFactory, canisterId } from "../../declarations/user_profile";

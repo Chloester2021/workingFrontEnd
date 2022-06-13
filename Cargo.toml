@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "src/rust_backend/rust_backend",
+    "src/rust_backend/user_profile",
+    "src/rust_backend/contract",
+    "src/rust_backend/subscriber",
+    "src/rust_backend/publisher",
+]

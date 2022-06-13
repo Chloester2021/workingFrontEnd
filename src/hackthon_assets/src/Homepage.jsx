@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react"
 import { loading, switchover } from './main'
 import { useGlobalContext } from './context'
+import { Auth } from "./components/Auth"
 import Search from "./Search"
-import heartGit from '../assets/homepage/jump-heart.png'
-import irrArrow from '../assets/homepage/irregular arrow.png'
-import arrow from '../assets/homepage/arrow.png'
-import signArrow from '../assets/homepage/sign-arrow.png'
+import heartGit from '../assets/home-page/assets/jump-heart.png'
+import irrArrow from '../assets/home-page/assets/irregular-arrow.png'
+import arrow from '../assets/home-page/assets/arrow.png'
+import signArrow from '../assets/home-page/assets/sign-arrow.png'
 
 export function Hero() {
 
@@ -28,6 +29,7 @@ export function Hero() {
 
     return (
         <>
+            <Auth />
             <img className="jump-heart shake shake-slow" src={heartGit} alt="" />
 
             <img className="right-arrow" src={irrArrow} alt="" />

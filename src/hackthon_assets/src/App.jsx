@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Auth } from "./components/Auth"
 import FetchData from "./fetchData"
@@ -14,14 +14,13 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Auth />}>
-            <Route index element={<Hero />} />
-            <Route path='mint' element={
-              <PrivateRoute>
-                <Mint />
-              </PrivateRoute>
-            } />
-          </Route>
+          <Route path="/" element={<Hero />} />
+          <Route path='mint' element={
+            <PrivateRoute>
+              <Mint />
+            </PrivateRoute>
+          } />
+
           <Route path='*' element={<Error />} />
         </Routes>
 

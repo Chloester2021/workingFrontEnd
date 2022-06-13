@@ -1,6 +1,6 @@
 html {
 	background-image: url(../assets/home-page/assets/bck.jpg);
-	background-size: cover;
+	background-size: 100%;
 }
 
 body {
@@ -1162,7 +1162,7 @@ body {
 	left: 0;
 	top: 0;
 	z-index: 2;
-	width: 20%;
+	width: 12%;
 }
 
 .container {
@@ -1177,73 +1177,6 @@ body {
 	box-sizing: border-box;
 }
 
-/* 背景弥散圆圈 */
-/* body::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #DD5946;
-    clip-path: circle(7% at 23% 33%);
-    z-index: 1;
-}
-body::after{
-    content: '';
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #DD5946;
-    clip-path: circle(9% at 30% 83%);
-}
-.container::before{
-    content: '';
-    position: absolute;
-    z-index: -2;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #DD5946;
-    clip-path: circle(9% at 5% 73%);
-}
-.container::after{
-    content: '';
-    position: absolute;
-    z-index: -2;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #FDC5DA;
-    clip-path: circle(9% at 7% 33%);
-}
-html::before{
-    content: '';
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #FFC387;
-    clip-path: circle(15% at 12% 10%);
-}
-html::after{
-    content: '';
-    position: absolute;
-    z-index: -2;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #FDC5DA;
-    clip-path: circle(12% at 17% 80%);
-} */
 .container .card {
 	position: relative;
 	width: 71%;
@@ -1270,6 +1203,25 @@ html::after{
 	opacity: 0;
 	box-sizing: border-box;
 }
+
+.form-input {
+	border: none;
+	width: 75%;
+	background-color: rgba(0, 0, 0, 0);
+	resize: 10px;
+
+	border-bottom: #fff 2px solid;
+	color: #fff;
+	margin-top: 6%;
+	padding: 1% 1% 1% 1%;
+}
+
+.form-input:focus {
+	outline: none;
+	border: 0;
+	border-bottom: #fff 2px solid;
+}
+
 
 .contentup {
 	transform: translateY(0px);
@@ -1813,6 +1765,7 @@ svg#heart {
 .draft-profile-wrapper .draft-profile {
 	display: inline-block;
 	box-sizing: border-box;
+	margin-top: 10%;
 }
 
 .draft-profile-wrapper .draft-profile .draft-name {
@@ -1895,11 +1848,16 @@ svg#heart {
 }
 
 .draft-profile-wrapper .notice {
-	width: 17%;
+	color: #fff;
+	font-weight: 700;
+	font-family: 'Lexend', "Trebuchet MS", Arial, Helvetica, sans-serif;
+	width: 40%;
 	height: 100%;
 	display: inline-block;
+	margin-top: 10%;
 	margin-left: 7%;
 	box-sizing: border-box;
+	cursor: pointer;
 }
 
 .draft-profile-wrapper .notice img {
@@ -1907,6 +1865,8 @@ svg#heart {
 	top: 10%;
 	box-sizing: border-box;
 }
+
+
 
 
 
@@ -1928,6 +1888,7 @@ svg#heart {
 	transform: translateY(0px);
 	opacity: 1;
 }
+
 
 .content-2 h2 {
 	font-size: 2.7em;
@@ -2084,6 +2045,7 @@ svg#heart {
 }
 
 .content-2 .contract-img {
+	width: 100%;
 	display: inline-block;
 	text-align: center;
 	box-sizing: border-box;

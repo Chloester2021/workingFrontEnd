@@ -1,5 +1,30 @@
 {
   "canisters": {
+    "rust_backend": {
+      "candid": "src/rust_backend/rust_backend/rust_backend.did",
+      "package": "rust_backend",
+      "type": "rust"
+    },
+    "user_profile": {
+      "candid": "src/rust_backend/user_profile/user_profile.did",
+      "package": "user_profile",
+      "type": "rust"
+    },
+    "contract": {
+      "candid": "src/rust_backend/contract/contract.did",
+      "package": "contract",
+      "type": "rust"
+    },
+    "publisher": {
+      "candid": "src/rust_backend/publisher/publisher.did",
+      "package": "publisher",
+      "type": "rust"
+    },
+    "subscriber": {
+      "candid": "src/rust_backend/subscriber/subscriber.did",
+      "package": "subscriber",
+      "type": "rust"
+    },
     "hackthon": {
       "main": "src/hackthon/main.mo",
       "type": "motoko"

@@ -1,0 +1,11 @@
+/home/chloe2022/new-projects/hackthon/target/wasm32-unknown-unknown/release/deps/serde_bytes-b1b4864194d03451.rmeta: /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/lib.rs /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/bytes.rs /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/de.rs /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/ser.rs /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/bytebuf.rs
+
+/home/chloe2022/new-projects/hackthon/target/wasm32-unknown-unknown/release/deps/libserde_bytes-b1b4864194d03451.rlib: /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/lib.rs /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/bytes.rs /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/de.rs /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/ser.rs /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/bytebuf.rs
+
+/home/chloe2022/new-projects/hackthon/target/wasm32-unknown-unknown/release/deps/serde_bytes-b1b4864194d03451.d: /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/lib.rs /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/bytes.rs /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/de.rs /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/ser.rs /home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/bytebuf.rs
+
+/home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/lib.rs:
+/home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/bytes.rs:
+/home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/de.rs:
+/home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/ser.rs:
+/home/chloe2022/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_bytes-0.11.6/src/bytebuf.rs:

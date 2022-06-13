@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/home/chloe2022/new-projects/hackthon/target/release/build/typenum-dcc8bf60c2d83526/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/home/chloe2022/new-projects/hackthon/target/release/build/typenum-dcc8bf60c2d83526/out/op.rs
