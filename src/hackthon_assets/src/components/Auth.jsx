@@ -70,7 +70,7 @@ function Auth() {
         <ul>
 
           <li>
-            <a href="#">Whitepaper</a>
+            <a href="https://loveincyber.super.site/">Docs</a>
           </li>
 
           {!signedIn && client ? (
