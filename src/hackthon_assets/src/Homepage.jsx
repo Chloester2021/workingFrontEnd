@@ -45,7 +45,7 @@ export function Hero() {
 
             <div className="headline-2">
                 <div className="sign">
-                    <a href="#">Sign in <img src={signArrow} /></a>
+                    <a href="#"><img src={signArrow} /></a>
                 </div>
                 <div className="welcome">
                     <span className="welcome-1"> Welcome to </span><br />

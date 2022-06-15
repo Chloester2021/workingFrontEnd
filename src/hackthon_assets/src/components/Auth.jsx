@@ -20,7 +20,6 @@ function Auth() {
       // get auth client identity
       const identity = client.getIdentity()
       const principal = identity.getPrincipal().toString()
-      console.log(principal, identity);
       setSignedIn(true)
       setPrincipal(principal)
     }
@@ -70,10 +69,16 @@ function Auth() {
 
         <ul>
 
+          <li>
+            <a href="#">Whitepaper</a>
+          </li>
+
           {!signedIn && client ? (
             <li>
               <a onClick={signIn} className="walletborder">
-                Connect the wallet</a></li >
+                Connect the wallet
+              </a>
+            </li>
           ) : null
           }
 
@@ -87,6 +92,7 @@ function Auth() {
               </li>
             )
           }
+
         </ul>
 
       </div>

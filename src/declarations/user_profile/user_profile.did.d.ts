@@ -16,7 +16,7 @@ export interface _SERVICE {
   'getProfileByEth' : (arg_0: string) => Promise<[] | [Profile]>,
   'getProfileByName' : (arg_0: string) => Promise<[] | [Profile]>,
   'getProfileByPrincipal' : (arg_0: Principal) => Promise<[] | [Profile]>,
-  'linkAddress' : (arg_0: string, arg_1: string) => Promise<Profile>,
+  'linkPrincipalID' : (arg_0: string) => Promise<string>,
   'list' : () => Promise<Array<Profile>>,
   'search' : (arg_0: string) => Promise<[] | [Profile]>,
   'setDescription' : (arg_0: string) => Promise<Profile>,

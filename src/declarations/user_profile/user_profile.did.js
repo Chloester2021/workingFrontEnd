@@ -24,7 +24,7 @@ export const idlFactory = ({ IDL }) => {
         [IDL.Opt(Profile)],
         ['query'],
       ),
-    'linkAddress' : IDL.Func([IDL.Text, IDL.Text], [Profile], []),
+    'linkPrincipalID' : IDL.Func([IDL.Text], [IDL.Text], []),
     'list' : IDL.Func([], [IDL.Vec(Profile)], ['query']),
     'search' : IDL.Func([IDL.Text], [IDL.Opt(Profile)], ['query']),
     'setDescription' : IDL.Func([IDL.Text], [Profile], []),

@@ -33,7 +33,7 @@ function Mint() {
     const date = new Date()
     const options = { year: 'numeric', month: 'long', day: 'numeric' }
     const today = date.toLocaleDateString("en-US", options)
-    console.log(today);
+
 
 
     // ----- to be removed when live
@@ -143,11 +143,10 @@ function Mint() {
                                         </div>
                                     </div>
                                     <div className="NFT">
-                                        <div className="NFT-title">MY&nbsp;&nbsp;&nbsp;<br />NFTs</div>
-                                        <div className="NFT-content">
-                                            <button>I want add NFT</button>
-                                            <button >I don't need NFT</button>
-                                        </div>
+                                        {/* <div className="NFT-title">Media</div> */}
+                                        {/* <div className="NFT-content"> */}
+                                        {/* <button >upload</button> */}
+                                        {/* </div> */}
                                     </div>
                                 </div>
 
@@ -177,7 +176,7 @@ function Mint() {
                                         </a>
                                     </div> */}
                                     <div className="text">
-                                        {text}
+                                        Message was posted successfully: "{text}"
                                     </div>
                                     <div className="date">
                                         <img src={date} alt="" />
@@ -204,6 +203,7 @@ function Mint() {
                                 <div className="name-owner">{`${user.substring(0, 10)}...`}</div>
                                 <div className="name-lover">{name}</div>
                             </div> */}
+                            <a href='' className="over-and-back">Send Another Message</a>
                             <div className="bottom-address-wrapper">
                                 <div className="bottom-address">
                                     {/* Record: 0x56cc...b3eab4 */}
