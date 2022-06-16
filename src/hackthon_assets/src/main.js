@@ -28,5 +28,23 @@ function switchover() {
     },777);
 }
 
+function switchback() {
+    let switchoverDisplay = document.querySelector('.headline');
+    switchoverDisplay.classList.remove("switchoverDisplay");
 
-export {loading, switchover}
+    setTimeout(function timeOut() {
+        
+        switchoverDisplay.style.display = "block";
+
+        let rightArrowDisplay = document.querySelector('.right-arrow');
+        rightArrowDisplay.classList.remove("rightArrowDisplay");
+
+        let switchoverDisplay2 = document.querySelector('.headline-2');
+        switchoverDisplay2.style.display = "none";
+
+        switchoverDisplay2.classList.remove("headline-2-display");
+
+    },77);
+}
+
+export {loading, switchover, switchback}

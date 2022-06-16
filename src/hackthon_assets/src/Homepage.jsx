@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { loading, switchover } from './main'
+import { loading, switchover, switchback } from './main'
 import { useGlobalContext } from './context'
 import { Auth } from "./components/Auth"
 import Search from "./Search"
@@ -27,6 +27,11 @@ export function Hero() {
     }
 
 
+    const handleGoback = () => {
+        setInput('')
+        switchback()
+    }
+
     return (
         <>
             <Auth />
@@ -44,8 +49,8 @@ export function Hero() {
             </div>
 
             <div className="headline-2">
-                <div className="sign">
-                    <a href="#"><img src={signArrow} /></a>
+                <div className="go-back-home">
+                    <a href="#" onClick={handleGoback}> Go back <img src={signArrow} /></a>
                 </div>
                 <div className="welcome">
                     <span className="welcome-1"> Welcome to </span><br />
