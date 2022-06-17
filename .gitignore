@@ -13,5 +13,6 @@
 # frontend code
 node_modules/
 dist/
+target/
 
 List.jsx

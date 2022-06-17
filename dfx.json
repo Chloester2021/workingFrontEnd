@@ -1,10 +1,5 @@
 {
   "canisters": {
-    "rust_backend": {
-      "candid": "src/rust_backend/rust_backend/rust_backend.did",
-      "package": "rust_backend",
-      "type": "rust"
-    },
     "user_profile": {
       "candid": "src/rust_backend/user_profile/user_profile.did",
       "package": "user_profile",
