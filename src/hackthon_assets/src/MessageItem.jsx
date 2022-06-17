@@ -18,6 +18,7 @@ const MessageItem = ({
             <div className="left-box">
                 <div className="profile1">
                     <Jazzicon diameter={50} seed={userA} />
+                    {/* <img src={profilePhoto} alt="profilePhoto" /> */}
                     <span> {user_self_id?.length > 6 ? `${user_self_id.substring(0, 4)}...` : user_self_id}</span>
                     <div>owner</div>
                 </div>
@@ -25,6 +26,7 @@ const MessageItem = ({
                     <img src={heartArrow} alt="heartArrow" />
                 </div>
                 <div className="profile2">
+                    {/* <img src={walletPhoto} alt="walletPhoto" /> */}
                     <Jazzicon diameter={50} seed={Math.round(Math.random() * 10000000)} />
                     <span>
                         {user_other_id?.length > 6 ? `${user_other_id.substring(0, 6)}...` : user_other_id}
