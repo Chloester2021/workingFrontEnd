@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Actor, HttpAgent } from "@dfinity/agent";
 import { Principal } from "@dfinity/principal";
 import { AuthClient } from "@dfinity/auth-client"
-import { idlFactory, canisterId } from "../../../declarations/contract";
+import { idlFactory, canisterId, createActor } from "../../../declarations/contract";
 import { Link, useNavigate } from 'react-router-dom';
 import { loading, switchover, noNFT } from './mint-main'
 import Jazzicon from 'react-jazzicon'
@@ -37,10 +37,10 @@ function Mint() {
 
 
     // ----- to be removed when live
-    const userId = Principal.fromText('rkp4c-7iaaa-aaaaa-aaaca-cai')
-    const localHost = "http://localhost:8080/";
-    const agent = new HttpAgent({ host: localHost });
-    agent.fetchRootKey()
+    // const userId = Principal.fromText('rkp4c-7iaaa-aaaaa-aaaca-cai')
+    // const localHost = "http://localhost:8080/";
+    // const agent = new HttpAgent({ host: localHost });
+    // agent.fetchRootKey()
     //  --------- to be removed
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -55,17 +55,21 @@ function Mint() {
         const authClient = await AuthClient.create()
         const identity = await authClient.getIdentity()
         // ----------replace belwo with try block
-        // const authenticatedActor = await Actor.createActor(canisterId, {
+        // const authenticatedActor = await createActor(canisterId, {
         //     agentOptions: { identity, }
         // })
         // const newMessage = await authenticatedActor.write(text, name)
         // ----------------------to be replaced-----------------------
         try {
-            const userActor = await Actor.createActor(idlFactory, {
-                agent,
-                canisterId: userId,
+            const authenticatedActor = await createActor(canisterId, {
+                agentOptions: { identity, }
             })
-            const newMessage = await userActor.write(text, name)
+            const newMessage = await authenticatedActor.write(text, name)
+            // const userActor = await Actor.createActor(idlFactory, {
+            //     agent,
+            //     canisterId: userId,
+            // })
+            // const newMessage = await userActor.write(text, name)
             // ------------------to be replaced
         } catch (error) {
             console.log(error);
@@ -152,7 +156,7 @@ function Mint() {
 
                             </div>
                             {/* <!-- sub按钮 --> */}
-                            <button className="btn-submit" onClick={switchover}>Submit</button>
+                            <button className="btn-submit" >Submit</button>
                         </form>
                     </div>
 
