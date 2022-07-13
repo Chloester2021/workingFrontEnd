@@ -3,8 +3,9 @@
 
 ## Key functions
 1. Use IC Identity to login to the website.
-2. Search and view other IC users' messages.
+2. View and search other users' messages on the message wall.
 3. Write and post messages securely using IC identity.
+4. Unique Jazzicon linked to user's principal. 
 
 ### More information please visit: [https://loveincyber.super.site](https://loveincyber.super.site/)
 
