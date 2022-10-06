@@ -1,24 +1,13 @@
-# hackthon
+## Visit Love in Cyber website:
+[https://ewarw-pqaaa-aaaam-qapwa-cai.ic0.app](https://ewarw-pqaaa-aaaam-qapwa-cai.ic0.app/)
 
-Welcome to your new hackthon project and to the internet computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+## Key functions
+1. Use IC Identity to login to the website.
+2. View and search other users' messages on the message wall.
+3. Write and post messages securely using IC identity.
+4. Unique Jazzicon linked to user's principal. 
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
-
-To learn more before you start working with hackthon, see the following documentation available online:
-
-- [Quick Start](https://sdk.dfinity.org/docs/quickstart/quickstart-intro.html)
-- [SDK Developer Tools](https://sdk.dfinity.org/docs/developers-guide/sdk-guide.html)
-- [Motoko Programming Language Guide](https://sdk.dfinity.org/docs/language-guide/motoko.html)
-- [Motoko Language Quick Reference](https://sdk.dfinity.org/docs/language-guide/language-manual.html)
-- [JavaScript API Reference](https://erxue-5aaaa-aaaab-qaagq-cai.raw.ic0.app)
-
-If you want to start working on your project right away, you might want to try the following commands:
-
-```bash
-cd hackthon/
-dfx help
-dfx config --help
-```
+### More information please visit: [https://loveincyber.super.site](https://loveincyber.super.site/)
 
 ## Running the project locally
 
