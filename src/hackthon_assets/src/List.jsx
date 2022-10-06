@@ -4,12 +4,13 @@ import { Actor, HttpAgent } from "@dfinity/agent";
 import { idlFactory, canisterId } from "../../declarations/user_profile";
 import { Principal } from "@dfinity/principal";
 import { AuthClient } from "@dfinity/auth-client"
-
+import { useGlobalContext } from './context'
+import Message from './Message';
 
 function List() {
     const [profile, setProfile] = useState()
-
-    const userId = Principal.fromText('qoctq-giaaa-aaaaa-aaaea-cai')
+    const { messages } = useGlobalContext()
+    const userId = Principal.fromText('rkp4c-7iaaa-aaaaa-aaaca-cai')
     const localHost = "http://localhost:8080/";
     const agent = new HttpAgent({ host: localHost });
     // agent.fetchRootKey()
@@ -40,6 +41,7 @@ function List() {
     return (
         <div>
             <p>user profile is {profile}</p>
+            <Message data={messages} />
         </div>
     )
 }

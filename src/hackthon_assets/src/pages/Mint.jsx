@@ -2,45 +2,29 @@ import React, { useState, useEffect } from 'react'
 import { Actor, HttpAgent } from "@dfinity/agent";
 import { Principal } from "@dfinity/principal";
 import { AuthClient } from "@dfinity/auth-client"
-import { idlFactory, canisterId, createActor } from "../../../declarations/contract";
-import { Link, useNavigate } from 'react-router-dom';
+import { idlFactory, canisterId, createActor } from "../../../declarations/post_service";
+import { useNavigate } from 'react-router-dom';
 import { loading, switchover, noNFT } from './mint-main'
+import Card from '../components/Card';
 import Jazzicon from 'react-jazzicon'
-import logo from "../../assets/mint-page/img/logo.png"
-import hearts from "../../assets/mint-page/img/3heart.png"
-import ringNFT from "../../assets/mint-page/img/ring-nft.png"
-import share from "../../assets/mint-page/img/share.png"
-import date from "../../assets/mint-page/img/date.png"
-import heartArrow from "../../assets/mint-page/img/heart-arrow.png"
-// import downArrow from "../../assets/mint-page/img/DownArrow.png"
-// import LikeMessage from "../../assets/mint-page/img/LikeMessage.png"
-// import Ring from "../../assets/mint-page/img/Ring.png"
-// import Prize from "../../assets/mint-page/img/Prize.png"
-// import User from "../../assets/mint-page/img/User.png"
-
-
-
-
+import { Auth } from '../components/Auth';
 
 function Mint() {
     const [name, setName] = useState("");
     const [text, setText] = useState("");
-    const navigate = useNavigate()
+    const [code, setCode] = useState("")
     const user = localStorage.getItem("user");
     const shortenedName = `${user.substring(0, 6)} ... ${user.substring(user.length - 6)}`
     const userA = user.match(/\d/g).join('')
     const userB = userA.substring(3, 5)
-    const date = new Date()
-    const options = { year: 'numeric', month: 'long', day: 'numeric' }
-    const today = date.toLocaleDateString("en-US", options)
 
 
 
     // ----- to be removed when live
-    // const userId = Principal.fromText('rkp4c-7iaaa-aaaaa-aaaca-cai')
-    // const localHost = "http://localhost:8080/";
-    // const agent = new HttpAgent({ host: localHost });
-    // agent.fetchRootKey()
+    const userId = Principal.fromText('r7inp-6aaaa-aaaaa-aaabq-cai')
+    const localHost = "http://localhost:8080/";
+    const agent = new HttpAgent({ host: localHost });
+    agent.fetchRootKey()
     //  --------- to be removed
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -54,22 +38,24 @@ function Mint() {
     const sendMessage = async ({ text, name }) => {
         const authClient = await AuthClient.create()
         const identity = await authClient.getIdentity()
-        // ----------replace belwo with try block
-        // const authenticatedActor = await createActor(canisterId, {
-        //     agentOptions: { identity, }
-        // })
-        // const newMessage = await authenticatedActor.write(text, name)
-        // ----------------------to be replaced-----------------------
+
         try {
-            const authenticatedActor = await createActor(canisterId, {
-                agentOptions: { identity, }
-            })
-            const newMessage = await authenticatedActor.write(text, name)
-            // const userActor = await Actor.createActor(idlFactory, {
-            //     agent,
-            //     canisterId: userId,
+            // const authenticatedActor = await createActor(canisterId, {
+            //     agentOptions: { identity, }
             // })
-            // const newMessage = await userActor.write(text, name)
+            // const newMessage = await authenticatedActor.getInvitationCode(record)
+            const userActor = await Actor.createActor(idlFactory, {
+                agent,
+                canisterId: userId,
+            })
+            let record = {
+                "user_other_id": "",
+                "text": text,
+                "user_other_name": name,
+            }
+            const newMessage = await userActor.getInvitationCode(record)
+            const code = await newMessage.Ok
+            setCode(code)
             // ------------------to be replaced
         } catch (error) {
             console.log(error);
@@ -79,18 +65,11 @@ function Mint() {
 
     }
 
-    const signOut = async () => {
-        localStorage.clear()
-        navigate('/')
-    }
-
     useEffect(() => { loading() }, [])
-
+    useEffect(() => { setCode(code) }, [code])
     return (
         <section >
-            <Link to='/'>
-                <img className="logo" src={logo} alt="" />
-            </Link>
+            <Auth />
 
             <div className="container">
                 <div className="card">
@@ -163,77 +142,24 @@ function Mint() {
 
 
                     <div className="content-2">
-
-                        <h2>Congratulations!</h2>
-                        <div className="bottom-line"></div>
-                        <div className="before-text">Your <b>Lovelocked</b> in blockchain.</div>
-                        <img className="three-heart" src={hearts} alt="" />
-                        <div className="contract-wrapper" id="wrapper-hover">
-                            <div className="text-box">
-                                <div className="show-NFT">
-                                    <img src={ringNFT} alt="" />
-                                </div>
-                                <div className="right-box">
-                                    {/* <div className="share-btn">
-                                        <a href="#">
-                                            <img src={share} alt="" />
-                                        </a>
-                                    </div> */}
-                                    <div className="text">
-                                        Message was posted successfully: "{text}"
-                                    </div>
-                                    <div className="date">
-                                        <img src={date} alt="" />
-                                        {/* <span>520days</span> */}
-                                    </div>
-                                    {/* <div className="money">
-                                        10$
-                                    </div> */}
-                                </div>
-                            </div>
-                            <div className="contract-img">
-                                <Jazzicon diameter={60} seed={userA} />
-
-                                {/* <img style={{ width: "7 %" }} src={profileFoto} alt="" /> */}
-                                <img src={heartArrow} alt="" />
-                                <Jazzicon diameter={60} seed={userB} />
-                                {/* <img style={{ width: "7 %" }} src={walletProfile} alt="" /> */}
-                            </div>
-                            <div className="contract-name">
-                                <div className="address-owner">{`${user.substring(0, 10)}...`}</div>
-                                <div className="address-lover">{name}</div>
-                            </div>
-                            {/* <div className="contract-name">
-                                <div className="name-owner">{`${user.substring(0, 10)}...`}</div>
-                                <div className="name-lover">{name}</div>
-                            </div> */}
-                            <a href='' className="over-and-back">Send Another Message</a>
-                            <div className="bottom-address-wrapper">
-                                <div className="bottom-address">
-                                    {/* Record: 0x56cc...b3eab4 */}
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    {today}
-                                </div>
-
-                            </div>
-                        </div>
+                        <Card receiver={name} text={text} code={code} sender={user} />
                     </div>
 
                 </div>
 
                 {/* <!-- 右上角下拉菜单 --> */}
-                <div className="draft-profile-wrapper">
+                {/* <div className="draft-profile-wrapper">
                     <div className="draft-profile">
                         <Jazzicon diameter={43} seed={userA} />
                         {/* <img className="draft-img" width="43px" src={profileFoto} alt=" " /> */}
 
-                        <div className="draft-name">
+                {/* <div className="draft-name">
 
-                            <div className='profile-id'>
-                                {`${user.substring(0, 6)}...`}
-                                <br></br>
-                            </div>
-                            {/* <img width="25px" src={downArrow} />
+                    <div className='profile-id'>
+                        {`${user.substring(0, 6)}...`}
+                        <br></br>
+                    </div> */} */
+                {/* <img width="25px" src={downArrow} />
 
                             <ul className="draft-ul">
                                 <li className="draft-li"><img src={LikeMessage} alt=" " />
@@ -247,13 +173,13 @@ function Mint() {
                                 <li className="draft-li"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sign off</li>
                             </ul> */}
 
-                        </div>
+                {/* </div>
                     </div>
                     <div className="notice">
                         <a onClick={signOut}>Sign out</a>
 
                     </div>
-                </div>
+                </div> */}
 
             </div>
         </section >

@@ -4,7 +4,7 @@ import Message from './Message';
 
 function Search({ data, input }) {
 
-    const filteredPersons = [...data].reverse().filter(
+    const filteredPersons = [...data].filter(
         person => {
             return (
                 person

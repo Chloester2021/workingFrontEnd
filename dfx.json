@@ -5,19 +5,9 @@
       "package": "user_profile",
       "type": "rust"
     },
-    "contract": {
-      "candid": "src/rust_backend/contract/contract.did",
-      "package": "contract",
-      "type": "rust"
-    },
-    "publisher": {
-      "candid": "src/rust_backend/publisher/publisher.did",
-      "package": "publisher",
-      "type": "rust"
-    },
-    "subscriber": {
-      "candid": "src/rust_backend/subscriber/subscriber.did",
-      "package": "subscriber",
+    "post_service": {
+      "candid": "src/rust_backend/post_service/post_service.did",
+      "package": "post_service",
       "type": "rust"
     },
     "hackthon": {

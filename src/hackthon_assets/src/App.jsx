@@ -7,7 +7,7 @@ import List from "./List"
 import Error from "./pages/Error";
 import Mint from "./pages/Mint";
 import PrivateRoute from "./PrivateRoute";
-
+import SentInvitation from "./pages/sentInvitation";
 function App() {
 
   return (
@@ -20,14 +20,14 @@ function App() {
               <Mint />
             </PrivateRoute>
           } />
-
+          <Route path="/invite" element={<PrivateRoute><SentInvitation /></PrivateRoute>} />
+          <Route path="/test" element={<List />} />
           <Route path='*' element={<Error />} />
         </Routes>
 
       </Router>
 
 
-      {/* <List /> */}
 
     </div>
   )

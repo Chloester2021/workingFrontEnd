@@ -1,18 +1,31 @@
 import React, { useState, useContext, useEffect } from "react";
-import { contract } from "../../declarations/contract";
+import { post_service } from "../../declarations/post_service";
+
 
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
+
     const [messages, setMessages] = useState([])
 
-
-
-
     const loadMessage = async () => {
-        const messages = await contract.message('{}')
-        setMessages(messages)
+
+        try {
+            const search = {
+                page_num: 0,
+                page_size: 100,
+                user_id: "",
+                text: ""
+            };
+            const res = await post_service.query_posts(search)
+            const messages = res.Ok.data
+            setMessages(messages)
+            console.log(messages);
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
     function timeElipsed(timestamp, currentTime) {
@@ -36,8 +49,6 @@ const AppProvider = ({ children }) => {
             value={{
                 messages,
                 timeElipsed,
-
-
             }}
         >
             {children}

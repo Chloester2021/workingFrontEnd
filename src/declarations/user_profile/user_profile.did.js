@@ -1,8 +1,10 @@
 export const idlFactory = ({ IDL }) => {
   const Profile = IDL.Record({
+    'img' : IDL.Text,
     'name' : IDL.Text,
     'description' : IDL.Text,
     'address' : IDL.Text,
+    'principal_id' : IDL.Principal,
   });
   return IDL.Service({
     'createUserProfile' : IDL.Func(
@@ -13,6 +15,11 @@ export const idlFactory = ({ IDL }) => {
     'getOwnPrincipal' : IDL.Func([], [IDL.Principal], ['query']),
     'getOwnProfile' : IDL.Func([], [Profile], ['query']),
     'getPrincipalByEth' : IDL.Func(
+        [IDL.Text],
+        [IDL.Opt(IDL.Principal)],
+        ['query'],
+      ),
+    'getPrincipalByName' : IDL.Func(
         [IDL.Text],
         [IDL.Opt(IDL.Principal)],
         ['query'],

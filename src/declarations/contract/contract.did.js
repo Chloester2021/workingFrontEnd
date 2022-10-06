@@ -6,7 +6,14 @@ export const idlFactory = ({ IDL }) => {
     'timestamp' : IDL.Int,
     'user_other_id' : IDL.Text,
   });
+  const InviteError = IDL.Variant({ 'InvitationCodeNotFound' : IDL.Null });
+  const LinkInvitationResult = IDL.Variant({
+    'Ok' : Post,
+    'Err' : InviteError,
+  });
   return IDL.Service({
+    'getInvitationCode' : IDL.Func([IDL.Text], [IDL.Text], []),
+    'linkByInvitationCode' : IDL.Func([IDL.Text], [LinkInvitationResult], []),
     'message' : IDL.Func([IDL.Text], [IDL.Vec(Post)], ['query']),
     'write' : IDL.Func([IDL.Text, IDL.Text], [], []),
   });

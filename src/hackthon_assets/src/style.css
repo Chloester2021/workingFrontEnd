@@ -1199,6 +1199,13 @@ body {
 	box-sizing: border-box;
 }
 
+.handOutline {
+	width: 100%;
+	margin-top: 12%;
+	margin-right: 50%;
+}
+
+
 .content {
 	width: 60%;
 	text-align: center;
@@ -1756,6 +1763,37 @@ svg#heart {
 	}
 }
 
+.btn-container {
+	position: relative;
+}
+
+.dropdown {
+	position: absolute;
+	top: 40px;
+	left: 0;
+	width: 100%;
+	background: var(--primary-100);
+	box-shadow: var(--shadow-2);
+	padding: 0.5rem;
+	text-align: center;
+	visibility: hidden;
+	border-radius: 50px;
+}
+
+.show-dropdown {
+	visibility: visible;
+}
+
+.dropdown-btn {
+	background: transparent;
+	border-color: transparent;
+	color: var(--primary-500);
+	letter-spacing: var(--letterSpacing);
+	text-transform: capitalize;
+	cursor: pointer;
+}
+
+
 /* dropdown menu 右上角下拉菜单 */
 .draft-profile-wrapper {
 	width: 19%;
@@ -1971,6 +2009,17 @@ svg#heart {
 	font-family: 'Lexend', sans-serif;
 	box-sizing: border-box;
 	text-transform: capitalize;
+}
+
+.content-2 .contract-wrapper .text-box p {
+	font-size: .7em;
+	text-transform: none;
+}
+
+.alert {
+	text-transform: uppercase;
+	font-size: 0.85rem;
+	margin-top: 0.5rem;
 }
 
 .content-2 .contract-wrapper .text-box .show-NFT {

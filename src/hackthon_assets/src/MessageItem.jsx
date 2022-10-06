@@ -7,7 +7,7 @@ const MessageItem = ({
     message
 }) => {
     const { timeElipsed } = useGlobalContext()
-    const { text, user_self_id, timestamp, user_other_id } = message
+    const { text, timestamp, user_other_name, user_other_id, user_self_id, is_invited } = message
     const userA = user_self_id.match(/\d/g).join('')
     const currentTime = new Date()
     const results = timeElipsed(timestamp, currentTime)
@@ -29,7 +29,7 @@ const MessageItem = ({
                     {/* <img src={walletPhoto} alt="walletPhoto" /> */}
                     <Jazzicon diameter={50} seed={Math.round(Math.random() * 10000000)} />
                     <span>
-                        {user_other_id?.length > 6 ? `${user_other_id.substring(0, 6)}...` : user_other_id}
+                        {is_invited ? `${user_other_id.substring(0, 6)}...` : user_other_name.substring(0, 8)}
                     </span>
                     <div>
                         &nbsp;

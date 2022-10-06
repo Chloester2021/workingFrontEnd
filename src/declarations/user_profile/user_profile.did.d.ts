@@ -1,8 +1,10 @@
 import type { Principal } from '@dfinity/principal';
 export interface Profile {
+  'img' : string,
   'name' : string,
   'description' : string,
   'address' : string,
+  'principal_id' : Principal,
 }
 export interface _SERVICE {
   'createUserProfile' : (
@@ -13,6 +15,7 @@ export interface _SERVICE {
   'getOwnPrincipal' : () => Promise<Principal>,
   'getOwnProfile' : () => Promise<Profile>,
   'getPrincipalByEth' : (arg_0: string) => Promise<[] | [Principal]>,
+  'getPrincipalByName' : (arg_0: string) => Promise<[] | [Principal]>,
   'getProfileByEth' : (arg_0: string) => Promise<[] | [Profile]>,
   'getProfileByName' : (arg_0: string) => Promise<[] | [Profile]>,
   'getProfileByPrincipal' : (arg_0: Principal) => Promise<[] | [Profile]>,
