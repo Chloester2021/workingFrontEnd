@@ -21,7 +21,6 @@ function App() {
             </PrivateRoute>
           } />
           <Route path="/invite" element={<PrivateRoute><SentInvitation /></PrivateRoute>} />
-          <Route path="/test" element={<List />} />
           <Route path='*' element={<Error />} />
         </Routes>
 

@@ -43,7 +43,6 @@ function Mint() {
             // const authenticatedActor = await createActor(canisterId, {
             //     agentOptions: { identity, }
             // })
-            // const newMessage = await authenticatedActor.getInvitationCode(record)
             const userActor = await Actor.createActor(idlFactory, {
                 agent,
                 canisterId: userId,
@@ -53,6 +52,7 @@ function Mint() {
                 "text": text,
                 "user_other_name": name,
             }
+            // const newMessage = await authenticatedActor.getInvitationCode(record)
             const newMessage = await userActor.getInvitationCode(record)
             const code = await newMessage.Ok
             setCode(code)
